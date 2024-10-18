@@ -1,0 +1,37 @@
+.developer-container {
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Image takes 300px, details take the remaining space */
+  justify-items: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  margin-top: 32px; /* Equivalent to 4 spacing */
+  padding: 32px; /* Equivalent to 4 spacing */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+.developer-image {
+  width: 300px; /* Set image size */
+  height: 300px; /* Set image size */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover; /* Ensures the image covers the circle */
+  margin-bottom: 16px; /* Margin below the image */
+}
+
+.developer-details {
+  max-width: 600px; /* Max width for the details */
+}
+
+/* Font sizes for typical website styling */
+.developer-name {
+  font-size: 1.5rem; /* Larger font size for name */
+}
+
+.developer-role {
+  font-size: 1.25rem; /* Medium font size for role */
+  color: #666; /* Subtle color for role */
+}
+
+.developer-bio {
+  font-size: 1rem; /* Standard font size for bio */
+}
