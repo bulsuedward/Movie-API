@@ -1,34 +1,33 @@
 .developer-container {
-  display: flex; /* Using flexbox */
-  align-items: center; /* Center items vertically */
-  margin-top: 32px; /* Equivalent to 4 spacing */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .developer-image {
-  width: 300px; /* Base image size */
-  height: 300px; /* Base image size */
-  border-radius: 50%; /* Circular shape */
-  object-fit: cover; /* Ensures the image covers the circle */
-  margin-bottom: 16px; /* Margin below the image */
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
 }
 
 .developer-details {
-  max-width: 600px; /* Max width for the details */
-  flex: 1; /* Allow details to grow and take remaining space */
+  max-width: 600px;
+  flex: 1;
 }
 
-/* Font sizes for typical website styling */
 .developer-name {
-  font-size: 1.5rem; /* Larger font size for name */
+  font-size: 1.5rem;
 }
 
 .developer-role {
-  font-size: 1.25rem; /* Medium font size for role */
-  color: #666; /* Subtle color for role */
+  font-size: 1.25rem;
+  color: #666;
 }
 
 .developer-bio {
-  font-size: 1rem; /* Standard font size for bio */
+  font-size: 1rem;
 }

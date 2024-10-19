@@ -57,8 +57,8 @@ const SearchBar = ({ onSearch }) => {
             display: "flex",
             alignItems: "center",
             gap: 2,
-            flexWrap: isSmallScreen ? "wrap" : "nowrap", // Wrap elements on small screens
-            marginLeft: "auto", // Push to the right
+            flexWrap: isSmallScreen ? "wrap" : "nowrap",
+            marginLeft: "auto",
             width: "100%",
             maxWidth: "800px",
           }}
@@ -71,7 +71,7 @@ const SearchBar = ({ onSearch }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             sx={{
               flexGrow: 1,
-              flexBasis: isSmallScreen ? "100%" : "300px", // Full width on small screens
+              flexBasis: isSmallScreen ? "100%" : "300px",
               minWidth: "150px",
               maxWidth: "200px",
             }}

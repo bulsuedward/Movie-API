@@ -10,18 +10,18 @@ const MovieDisplay = ({ searchParams }) => {
 
   useEffect(() => {
     const fetchMovieData = async () => {
-      if (!searchParams.title) return; // Exit if no title provided
+      if (!searchParams.title) return;
 
       setLoading(true);
-      setError(null); // Reset error before fetching
+      setError(null);
 
       try {
         const { data } = await axios.get("http://www.omdbapi.com/", {
           params: {
             t: searchParams.title,
             y: searchParams.year,
-            plot: searchParams.plot, // This might be optional
-            apiKey: "788848fd", // Replace with your actual API key
+            plot: searchParams.plot,
+            apiKey: "788848fd",
           },
         });
 

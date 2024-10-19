@@ -1,11 +1,11 @@
 .movie-container {
   display: grid;
-  grid-template-columns: 300px 1fr; /* Image takes 300px, details take the remaining space */
-  justify-items: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
-  margin-top: 32px; /* Equivalent to 4 spacing */
-  padding: 32px; /* Equivalent to 4 spacing */
+  grid-template-columns: 300px 1fr;
+  justify-items: center;
+  align-items: center;
+  margin-top: 32px;
+  padding: 32px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
