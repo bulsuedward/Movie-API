@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import SearchBar from "../components/SearchBar"; // Adjust the path as necessary
 import MovieDisplay from "../components/MovieDisplay"; // Adjust the path as necessary
 import DeveloperDetails from "../components/DeveloperDetails";
+import "../css/movieapp.css"; // Import the CSS file
 const MovieApp = () => {
   const [searchParams, setSearchParams] = useState({
     title: "",
@@ -16,11 +17,17 @@ const MovieApp = () => {
 
   return (
     <>
-      <Container>
+      <Box
+        component="div"
+        sx={{
+          padding: "0 20px", // 20px margin on left and right
+          boxSizing: "border-box", // Ensure padding is within the element's width
+        }}
+      >
         <SearchBar onSearch={handleSearch} />
         <MovieDisplay searchParams={searchParams} />
-      </Container>
-      <DeveloperDetails />
+        <DeveloperDetails />
+      </Box>
     </>
   );
 };

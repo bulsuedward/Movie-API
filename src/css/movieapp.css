@@ -1,0 +1,12 @@
+.Container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.MovieApp {
+  flex-grow: 1; /* Takes up remaining space */
+  display: flex;
+  flex-direction: column;
+}

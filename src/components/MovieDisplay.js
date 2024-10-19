@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, CircularProgress } from "@mui/material";
 import axios from "axios";
+import "../css/moviedisplay.css"; // Import the CSS file
 
 const MovieDisplay = ({ searchParams }) => {
   const [movieData, setMovieData] = useState(null);
@@ -20,7 +21,7 @@ const MovieDisplay = ({ searchParams }) => {
             t: searchParams.title,
             y: searchParams.year,
             plot: searchParams.plot, // This might be optional
-            apiKey: "YOUR_API_KEY", // Replace with your actual API key
+            apiKey: "788848fd", // Replace with your actual API key
           },
         });
 
@@ -41,7 +42,11 @@ const MovieDisplay = ({ searchParams }) => {
   if (error) return <Typography color="error">{error}</Typography>;
 
   return movieData ? (
-    <Box sx={{ display: "flex", gap: 2 }}>
+    <Box
+      sx={{ display: "flex", gap: 2 }}
+      component="div"
+      className="movie-container"
+    >
       <img
         src={movieData.Poster}
         alt={movieData.Title}
