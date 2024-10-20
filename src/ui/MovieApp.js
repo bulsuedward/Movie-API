@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import SearchBar from "../components/SearchBar";
 import MovieDisplay from "../components/MovieDisplay";
 import DeveloperDetails from "../components/DeveloperDetails";
-import "../css/movieapp.css"; // Import the CSS file
+import "../css/movieapp.css"; 
 const MovieApp = () => {
   const [searchParams, setSearchParams] = useState({
     title: "",

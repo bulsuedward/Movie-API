@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+
 import {
   AppBar,
   Toolbar,
-  Typography,
   TextField,
   Select,
   MenuItem,
@@ -10,6 +10,7 @@ import {
   InputLabel,
   Box,
   Button,
+  Typography,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
@@ -19,11 +20,11 @@ const SearchBar = ({ onSearch }) => {
   const [year, setYear] = useState("");
   const [plot, setPlot] = useState("");
 
-  // Responsive theme breakpoints for adjusting on small screens
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleSearch = () => {
+    // This triggers the function passed from the parent (container) component
     onSearch({ title: searchTerm, year, plot });
   };
 
@@ -31,7 +32,7 @@ const SearchBar = ({ onSearch }) => {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: "#f2f4f4",
+        backgroundColor: "#D3D3D3",
         padding: "10px 20px",
         width: "100%",
         marginTop: "20px",
@@ -50,7 +51,7 @@ const SearchBar = ({ onSearch }) => {
             fontWeight: "bold",
           }}
         >
-          Movies
+          Movies Search App
         </Typography>
         <Box
           sx={{
@@ -89,7 +90,7 @@ const SearchBar = ({ onSearch }) => {
             }}
             sx={{
               flexGrow: 1,
-              flexBasis: isSmallScreen ? "100%" : "150px", // Full width on small screens
+              flexBasis: isSmallScreen ? "100%" : "150px",
               minWidth: "100px",
               maxWidth: "200px",
             }}
@@ -99,7 +100,7 @@ const SearchBar = ({ onSearch }) => {
             size="medium"
             sx={{
               flexGrow: 1,
-              flexBasis: isSmallScreen ? "100%" : "150px", // Full width on small screens
+              flexBasis: isSmallScreen ? "100%" : "150px",
               minWidth: "120px",
               maxWidth: "200px",
             }}
@@ -120,9 +121,13 @@ const SearchBar = ({ onSearch }) => {
             onClick={handleSearch}
             sx={{
               flexGrow: 1,
-              flexBasis: isSmallScreen ? "100%" : "100px", // Full width on small screens
+              flexBasis: isSmallScreen ? "100%" : "100px",
               minWidth: "80px",
               maxWidth: "150px",
+              backgroundColor: "#36454F",
+              "&:hover": {
+                backgroundColor: "#2B3A43",
+              },
             }}
           >
             Search

@@ -11,41 +11,20 @@ import Runtime from "../assets/runtimeicon.svg";
 import Rating from "../assets/ratingicon.svg";
 import Actor from "../assets/actorsicon.svg";
 import NotFound from "../assets/notfound.svg";
+import FetchMovieData from "../hooks/FetchMovieData";
+
+// Reusable field component for displaying movie details
+const MovieDetailField = ({ iconSrc, label, value }) => (
+  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+    <img src={iconSrc} alt={`${label} Icon`} width={24} height={24} />
+    <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
+      {label}: {value}
+    </Typography>
+  </Box>
+);
 
 const MovieDisplay = ({ searchParams }) => {
-  const [movieData, setMovieData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchMovieData = async () => {
-      if (!searchParams.title) return;
-
-      setLoading(true);
-      setError(null);
-
-      try {
-        const { data } = await axios.get("http://www.omdbapi.com/", {
-          params: {
-            t: searchParams.title,
-            y: searchParams.year,
-            plot: searchParams.plot,
-            apiKey: "788848fd",
-          },
-        });
-
-        if (data.Response === "False") throw new Error(data.Error);
-
-        setMovieData(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMovieData();
-  }, [searchParams]);
+  const { movieData, loading, error } = FetchMovieData(searchParams);
 
   if (loading)
     return (
@@ -120,66 +99,44 @@ const MovieDisplay = ({ searchParams }) => {
           boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
         }}
       />
-      <Box
-        sx={{
-          alignItems: "center",
-          marginLeft: "200px",
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Typography variant="h5" sx={{ fontSize: "2.25rem" }}>
-            {movieData.Title}
-          </Typography>
-        </Box>
+      <Box sx={{ alignItems: "center", marginLeft: "200px" }}>
+        <Typography variant="h5" sx={{ fontSize: "2.25rem" }}>
+          {movieData.Title}
+        </Typography>
 
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <img src={Date} alt="Date Icon" width={24} height={24} />
-          <Typography variant="subtitle1" sx={{ fontSize: "1.875rem" }}>
-            {movieData.Released}
-          </Typography>
-        </Box>
-
-        <Box sx={{ display: "flex", gap: 1, alignContent: "space-evenly" }}>
-          <img src={Plot} alt="Plot Icon" width={24} height={24} />
-          <Typography variant="body1" sx={{ fontSize: "1.5rem" }}>
-            {movieData.Plot}
-          </Typography>
-        </Box>
-
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <img src={Runtime} alt="Info Icon" width={24} height={24} />
-          <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
-            Runtime: {movieData.Runtime}
-          </Typography>
-        </Box>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <img src={Genre} alt="Info Icon" width={24} height={24} />
-          <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
-            Genre: {movieData.Genre}
-          </Typography>
-        </Box>
-
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <img src={Actor} alt="Actors Icon" width={24} height={24} />
-          <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
-            Actors: {movieData.Actors}
-          </Typography>
-        </Box>
-
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <img src={Director} alt="Info Icon" width={24} height={24} />
-          <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
-            Director: {movieData.Director}
-          </Typography>
-        </Box>
+        <MovieDetailField
+          iconSrc={Date}
+          label="Released"
+          value={movieData.Released}
+        />
+        <MovieDetailField iconSrc={Plot} label="Plot" value={movieData.Plot} />
+        <MovieDetailField
+          iconSrc={Runtime}
+          label="Runtime"
+          value={movieData.Runtime}
+        />
+        <MovieDetailField
+          iconSrc={Genre}
+          label="Genre"
+          value={movieData.Genre}
+        />
+        <MovieDetailField
+          iconSrc={Actor}
+          label="Actors"
+          value={movieData.Actors}
+        />
+        <MovieDetailField
+          iconSrc={Director}
+          label="Director"
+          value={movieData.Director}
+        />
 
         {rottenTomatoesRating && (
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <img src={Rating} alt="Rating Icon" width={24} height={24} />
-            <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
-              Rotten Tomatoes: {rottenTomatoesRating}
-            </Typography>
-          </Box>
+          <MovieDetailField
+            iconSrc={Rating}
+            label="Rotten Tomatoes"
+            value={rottenTomatoesRating}
+          />
         )}
       </Box>
     </Box>

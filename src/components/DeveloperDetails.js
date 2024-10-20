@@ -1,21 +1,25 @@
 import React from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import "../css/developerdetails.css"; // Import the CSS file
+import "../css/developerdetails.css"; 
 import DeveloperImage from "../assets/edward.jpg";
+import LinkedInIcon from "../assets/linkedin.svg"; 
+import FacebookIcon from "../assets/facebook.svg"; 
+import GitHubIcon from "../assets/github.svg"; 
 
 const DeveloperDetails = () => {
-  // Responsive layout
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
+    // DeveloperDetails Information
     <Box
       className="developer-container"
       sx={{
         mt: 4,
         display: "flex",
         flexDirection: isSmallScreen ? "column" : "row",
-        alignItems: isSmallScreen ? "center" : "flex-start",
+        alignItems: "center",
+        justifyContent: "center",
         padding: isSmallScreen ? "16px" : "32px",
         borderRadius: "8px",
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
@@ -28,8 +32,8 @@ const DeveloperDetails = () => {
         alt="Developer"
         className="developer-image"
         sx={{
-          width: isSmallScreen ? "150px" : "300px",
-          height: isSmallScreen ? "150px" : "300px",
+          width: isSmallScreen ? "100px" : "300px",
+          height: isSmallScreen ? "100px" : "300px",
           borderRadius: "50%",
           objectFit: "cover",
           mb: isSmallScreen ? 2 : 0,
@@ -41,6 +45,7 @@ const DeveloperDetails = () => {
           padding: "16px",
           display: "grid",
           flex: 1,
+          textAlign: "center",
           marginLeft: isSmallScreen ? 0 : "50px",
         }}
       >
@@ -74,11 +79,46 @@ const DeveloperDetails = () => {
             mt: 1,
           }}
         >
-          Edward is a passionate frontend developer with experience in building
-          responsive web applications using React and Material-UI. He enjoys
-          solving complex problems and is always eager to learn new
-          technologies.
+          I'm a graduate of Bulacan State University with a degree in BSIT,
+          Specializing in Web and Mobile application Development. My passion
+          lies in playing online games, particularly League of Legends, and I
+          also have a keen interest in street and portrait photography. I’m
+          always eager to learn new things and continually push myself to grow.
+          I like to describe myself as someone who tries hard—in a good
+          way—always striving to improve and expand my skills.
         </Typography>
+
+        {/* Social Media Icons */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 2,
+            mt: 2,
+          }}
+        >
+          <a
+            href="https://www.linkedin.com/in/edward-joseph-santos-192a6b299/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={LinkedInIcon} alt="LinkedIn" width={30} height={30} />
+          </a>
+          <a
+            href="https://www.facebook.com/edwardsantos02"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={FacebookIcon} alt="Facebook" width={30} height={30} />
+          </a>
+          <a
+            href="https://github.com/bulsuedward"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={GitHubIcon} alt="GitHub" width={30} height={30} />
+          </a>
+        </Box>
       </Box>
     </Box>
   );
