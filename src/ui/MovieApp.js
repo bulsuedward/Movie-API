@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Box, Container } from "@mui/material";
-import SearchBar from "../components/SearchBar"; // Adjust the path as necessary
-import MovieDisplay from "../components/MovieDisplay"; // Adjust the path as necessary
+import { Box } from "@mui/material";
+import SearchBar from "../components/SearchBar";
+import MovieDisplay from "../components/MovieDisplay";
 import DeveloperDetails from "../components/DeveloperDetails";
 import "../css/movieapp.css"; // Import the CSS file
 const MovieApp = () => {
@@ -12,7 +12,7 @@ const MovieApp = () => {
   });
 
   const handleSearch = (params) => {
-    setSearchParams(params); // Update search parameters
+    setSearchParams(params);
   };
 
   return (
@@ -20,8 +20,8 @@ const MovieApp = () => {
       <Box
         component="div"
         sx={{
-          padding: "0 20px", // 20px margin on left and right
-          boxSizing: "border-box", // Ensure padding is within the element's width
+          padding: "0 20px",
+          boxSizing: "border-box",
         }}
       >
         <SearchBar onSearch={handleSearch} />
