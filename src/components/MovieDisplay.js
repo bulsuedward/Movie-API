@@ -9,7 +9,7 @@ import Plot from "../assets/ploticon.svg";
 import Date from "../assets/movieicon.svg";
 import Runtime from "../assets/runtimeicon.svg";
 import Rating from "../assets/ratingicon.svg";
-import Actor from "../assets/actorsicon.svg"; // Assuming you have an actor icon
+import Actor from "../assets/actorsicon.svg";
 import NotFound from "../assets/notfound.svg";
 
 const MovieDisplay = ({ searchParams }) => {
@@ -54,21 +54,22 @@ const MovieDisplay = ({ searchParams }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "400px", // Full viewport height
+          height: "400px",
         }}
       >
         <CircularProgress
           sx={{
-            color: "#7fb3d5", // Custom spinner color
-            width: "100px !important", // Spinner size
-            height: "100px !important", // Spinner size
-            boxShadow: "0px 0px 20px 5px rgba(93,109,126,0.6)", // Glowing effect
-            borderRadius: "50%", // Rounded spinner
+            color: "#7fb3d5",
+            width: "100px !important",
+            height: "100px !important",
+            boxShadow: "0px 0px 20px 5px rgba(93,109,126,0.6)",
+            borderRadius: "50%",
           }}
-          thickness={4} // Thickness of the spinner stroke
+          thickness={4}
         />
       </Box>
     );
+
   if (error)
     return (
       <Box
@@ -78,15 +79,15 @@ const MovieDisplay = ({ searchParams }) => {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          height: "400px", // Full viewport height for centering
+          height: "400px",
         }}
       >
         <img
           src={NotFound}
           alt="Movie Not Found"
           style={{
-            maxWidth: "250px", // Adjust size as needed
-            height: "auto", // Keep the aspect ratio
+            maxWidth: "200px",
+            height: "auto",
           }}
         />
         <Typography
@@ -99,7 +100,6 @@ const MovieDisplay = ({ searchParams }) => {
       </Box>
     );
 
-  // Extract Rotten Tomatoes rating if available
   const rottenTomatoesRating = movieData?.Ratings?.find(
     (rating) => rating.Source === "Rotten Tomatoes"
   )?.Value;
@@ -115,9 +115,9 @@ const MovieDisplay = ({ searchParams }) => {
         alt={movieData.Title}
         style={{
           marginLeft: "300px",
-          border: "5px solid #B2BEB5", // Border color (light blue)
-          borderRadius: "10px", // Rounded corners
-          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)", // Box shadow for depth effect
+          border: "5px solid #B2BEB5",
+          borderRadius: "10px",
+          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
         }}
       />
       <Box
@@ -126,14 +126,12 @@ const MovieDisplay = ({ searchParams }) => {
           marginLeft: "200px",
         }}
       >
-        {/* Title with Icon */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Typography variant="h5" sx={{ fontSize: "2.25rem" }}>
             {movieData.Title}
           </Typography>
         </Box>
 
-        {/* Release Date with Icon */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <img src={Date} alt="Date Icon" width={24} height={24} />
           <Typography variant="subtitle1" sx={{ fontSize: "1.875rem" }}>
@@ -141,7 +139,6 @@ const MovieDisplay = ({ searchParams }) => {
           </Typography>
         </Box>
 
-        {/* Plot with Icon */}
         <Box sx={{ display: "flex", gap: 1, alignContent: "space-evenly" }}>
           <img src={Plot} alt="Plot Icon" width={24} height={24} />
           <Typography variant="body1" sx={{ fontSize: "1.5rem" }}>
@@ -149,7 +146,6 @@ const MovieDisplay = ({ searchParams }) => {
           </Typography>
         </Box>
 
-        {/* Runtime, Genre, Director with Icon */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <img src={Runtime} alt="Info Icon" width={24} height={24} />
           <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
@@ -163,7 +159,6 @@ const MovieDisplay = ({ searchParams }) => {
           </Typography>
         </Box>
 
-        {/* Actors below Genre */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <img src={Actor} alt="Actors Icon" width={24} height={24} />
           <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
@@ -178,7 +173,6 @@ const MovieDisplay = ({ searchParams }) => {
           </Typography>
         </Box>
 
-        {/* Rotten Tomatoes Rating with Icon */}
         {rottenTomatoesRating && (
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <img src={Rating} alt="Rating Icon" width={24} height={24} />
@@ -190,7 +184,6 @@ const MovieDisplay = ({ searchParams }) => {
       </Box>
     </Box>
   ) : (
-    // If no movie is available, show image and text
     <Box
       sx={{
         display: "flex",
@@ -198,18 +191,17 @@ const MovieDisplay = ({ searchParams }) => {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        height: "400px", // Full viewport height for centering
-        padding: 2, // Padding for better spacing on smaller screens
+        height: "400px",
+        padding: 2,
       }}
     >
-      {/* Use the imported image */}
       <img
         src={NoMovies}
         alt="No Movies to Display"
         style={{
-          maxWidth: "100%", // Ensures the image never overflows the container
-          width: "200px", // Base size for larger screens
-          height: "auto", // Keep the aspect ratio
+          maxWidth: "100%",
+          width: "200px",
+          height: "auto",
         }}
       />
       <Typography
@@ -218,9 +210,9 @@ const MovieDisplay = ({ searchParams }) => {
         sx={{
           marginTop: 2,
           fontSize: {
-            xs: "1rem", // Smaller font size on extra small screens
-            sm: "1.25rem", // Slightly larger font size on small screens
-            md: "1.5rem", // Larger font size on medium screens and up
+            xs: "1rem",
+            sm: "1.25rem",
+            md: "1.5rem",
           },
         }}
       >
